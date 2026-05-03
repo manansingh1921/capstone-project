@@ -1,0 +1,219 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Press Start 2P", cursive;
+  background: radial-gradient(circle at top, #0b1020, #05060a);
+  color: #d1d5db;
+  overflow-x: hidden;
+}
+
+/* SCANLINES (SUBTLE) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02),
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0.25;
+}
+
+/* =========================
+   TOPBAR (STABLE)
+========================= */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #0f172a;
+  border-bottom: 2px solid #4f46e5;
+}
+
+.logo {
+  font-size: 12px;
+  color: #a78bfa;
+}
+
+.nav-links {
+  display: flex;
+  gap: 14px;
+}
+
+.nav-links a {
+  font-size: 10px;
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 22px;
+}
+
+/* TITLE */
+.title {
+  font-size: 14px;
+  margin-bottom: 18px;
+  color: #a78bfa;
+}
+
+/* =========================
+   DASHBOARD LAYOUT
+========================= */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px;
+}
+
+/* LEFT PANEL */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================
+   GRID CARDS
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: #0f172a;
+  border: 2px solid #4f46e5;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 3px 3px 0 #000;
+}
+
+/* =========================
+   TASK INPUT
+========================= */
+.task-input {
+  background: #0f172a;
+  border: 2px solid #4f46e5;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.task-input input {
+  background: #000;
+  color: white;
+  border: 1px solid #4f46e5;
+  padding: 8px;
+  font-size: 10px;
+  margin: 4px;
+}
+
+/* =========================
+   BUTTONS (SAFE ANIMATION ONLY)
+========================= */
+button {
+  font-family: inherit;
+  font-size: 10px;
+  background: #4f46e5;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+  transition: transform 0.12s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* =========================
+   TASK CARD
+========================= */
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f172a;
+  border: 2px solid #1d4ed8;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+/* =========================
+   XP BAR
+========================= */
+.xp-bar {
+  height: 10px;
+  background: #000;
+  border: 2px solid #4f46e5;
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #a78bfa);
+  transition: width 0.4s ease;
+}
+
+/* =========================
+   GRAPH (CANVAS SAFE)
+========================= */
+.graph-card {
+  border: 2px solid #1d4ed8;
+  background: #0f172a;
+  padding: 12px;
+}
+
+.graph-canvas {
+  width: 100%;
+  height: 180px;
+  display: block;
+  background: radial-gradient(circle, #0b1020, #05060a);
+}
+
+/* =========================
+   FLOAT BUTTON
+========================= */
+.fab {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #4f46e5;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 800px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
